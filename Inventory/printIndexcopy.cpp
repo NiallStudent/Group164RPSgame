@@ -16,6 +16,8 @@ int main() {
     std::vector<MyObject> objects;
     int numberOfObjects = 5;
 
+    //code to generate new items with automatically generated names. add it to vector
+     
     for (int i = 0; i < numberOfObjects; ++i) {
         std::string objectName = "Object_" + std::to_string(i);
         objects.emplace_back(objectName);

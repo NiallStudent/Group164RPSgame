@@ -5,6 +5,8 @@
 using namespace std;
 #include "Weapon.h"
 #include "Armour.h"
+#include "Item.h"
+#include <vector>
 
 class Player
 {
@@ -16,6 +18,7 @@ private:
     int gold;
     weapon currentweapon;
     Armour currentarmour;
+    vector<Item *> inventory;
 
 public:
     Player() : Player("defaultName", 100, 20, 20){};
@@ -32,6 +35,7 @@ public:
         this->scissorsDefence = Defence;
         this->currentweapon = weapon();
         this->currentarmour = Armour();
+        this->inventory = {};
 
         this->gold = 0;
     };
@@ -44,6 +48,16 @@ public:
     {
         this->name = name;
     };
+
+    int get_HP()
+    {
+        return this->HP;
+    }
+    void set_health(int healthChange)
+    {
+        this->HP = this->HP + healthChange;
+        cout << this->get_name() << "has " << this->HP << " HP";
+    }
 
     double get_attack()
     {
@@ -139,6 +153,34 @@ public:
     {
         return this->currentarmour;
     }
+
+    void addItem(Item *item)
+    {
+        inventory.push_back(item);
+    }
+
+    void listItems()
+    {
+        for (int i = 0; i < inventory.size(); i++)
+        {
+            cout << i << ": " << inventory[i]->getName() << endl;
+        }
+    };
+
+    Item *getItem(int index)
+    {
+        for (int i = 0; i < inventory.size(); i++)
+        {
+            if (i == index)
+            {
+                cout << "Found item: " << inventory[i]->getName();
+                return inventory[i];
+            }
+        }
+
+        cout << "could not find item";
+        return nullptr;
+    };
 
     ~Player(){};
 };
