@@ -8,7 +8,7 @@ combat::combat() {
 }
 
 int combat::playerAttack() {
-    cout << "Choose your type of attack: (1 for rock, 2 for paper, 3 for scissor)" << endl;
+    cout << "Choose your type of attack: (1 for rock, 2 for paper, 3 for scissor): " << endl;
     cin >> playerTypeOfAttack;
     switch (playerTypeOfAttack) {
     case 1:
@@ -24,30 +24,30 @@ int combat::playerAttack() {
         return 3;
         break;
     default:
-        cout << "Invalid number, please try again" << endl;
+        cout << "Invalid number, please try again!" << endl;
         return 0;
         break;
     }
 }
 
 int combat::playerDefense() {
-    cout << "Choose your type of defense: (1 for rock, 2 for paper, 3 for scissor)" << endl;
+    cout << "Choose your type of defence: (1 for rock, 2 for paper, 3 for scissor): " << endl;
     cin >> playerTypeOfDefense;
     switch (playerTypeOfDefense) {
     case 1:
-        cout << "You performed a rock defense!" << endl;
+        cout << "You performed a rock defence!" << endl;
         return 1;
         break;
     case 2:
-        cout << "You performed a paper defense!" << endl;
+        cout << "You performed a paper defence!" << endl;
         return 2;
         break;
     case 3:
-        cout << "You performed a scissor defense!" << endl;
+        cout << "You performed a scissor defence!" << endl;
         return 3;
         break;
     default:
-        cout << "Invalid number, please try again" << endl;
+        cout << "Invalid number, please try again!" << endl;
         return 0;
         break;
     }
@@ -75,13 +75,13 @@ int combat::enemyDefense() {
     enemyTypeOfDefense = rand() % 3 + 1;
     switch (enemyTypeOfDefense) {
         case 1:
-            cout << "The enemy performed a rock defense!" << endl;
+            cout << "The enemy performed a rock defence!" << endl;
             break;
         case 2:
-            cout << "The enemy performed a paper defense!" << endl;
+            cout << "The enemy performed a paper defence!" << endl;
             break;
         case 3:
-            cout << "The enemy performed a scissor defense!" << endl;
+            cout << "The enemy performed a scissor defence!" << endl;
             break;
     }
     return enemyTypeOfDefense;
@@ -119,6 +119,6 @@ int combat::getDmgMultiplierFromEnemy() {
     return damageMultiplier;
 }
 
-int combat::getCurrentHP() {
+int combat::getPlayerCurrentHP() {
     return 1;
 }
