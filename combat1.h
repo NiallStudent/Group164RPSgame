@@ -8,6 +8,7 @@ class combat {
         int enemyTypeOfAttack;
         int enemyTypeOfDefense;
         int damageMultiplier;
+        int rewards;
     public:
         combat();
         int playerAttack();
@@ -20,5 +21,8 @@ class combat {
         void enemyDealtDmg();
         int getPlayerCurrentHP();
         int getEnemyCurrentHP();
+        int chooseRewards();
+        void checkWin();
+        void checkLose();
 };
 #endif

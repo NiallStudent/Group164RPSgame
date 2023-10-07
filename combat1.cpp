@@ -119,6 +119,33 @@ int combat::getDmgMultiplierFromEnemy() {
     return damageMultiplier;
 }
 
-int combat::getPlayerCurrentHP() {
-    return 1;
+void combat::playerDealtDmg() {
+    cout << "You have dealt " << //player.atk*damageMultiplier*player.weapon << " to the enemy!" << endl;
+    //enemy.hp = enemy.hp - player.atk*damageMultiplier*player.weapon
 }
+
+void combat::enemyDealtDmg() {
+    cout << "Enemy has dealt " << //enemy.atk*damageMultiplier << " to you!" << endl;
+    //player.hp = player.hp - enemy.atk*damageMultiplier
+}
+
+int combat::chooseRewards() {
+    cout << "Please select one of these rewards: " << endl;
+    cout << "1. " << //reward1 << endl;
+    cout << "2. " << //reward2 << endl;
+    cout << "3. " << //reward3 << endl;
+    cin >> rewards;
+}
+
+void combat::checkWin() {
+    // if enemy.health == 0 {
+        cout << "Congratulation! You have defeated an enemy!"
+        chooseRewards();
+    // }
+}
+
+void combat::checkLose() {
+    // if player.health == 0 {
+        cout << "You died! Game over!" << endl;
+        break;
+    }
