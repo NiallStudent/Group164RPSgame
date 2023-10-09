@@ -10,24 +10,24 @@ class Actor
 protected:
     string name;
     int HP;
-    double Attack, rockAttack, paperAttack, scissorsAttack;
-    double Defence, rockDefence, paperDefence, scissorsDefence;
+    double rockAttack, paperAttack, scissorsAttack;
+    double rockDefence, paperDefence, scissorsDefence;
 
     
 
 public:
-    Actor() : Actor("defaultActorName", 100, 20, 20){};
-    Actor(string name, int HP, double Attack, double Defence)
+    Actor() : Actor("defaultActorName", 100){};
+    Actor(string name, int HP)
     {
         this->name = name;
-        this->Attack = Attack;
-        this->rockAttack = Attack;
-        this->paperAttack = Attack;
-        this->scissorsAttack = Attack;
-        this->Defence = Defence;
-        this->rockDefence = Defence;
-        this->paperDefence = Defence;
-        this->scissorsDefence = Defence;
+    
+        this->rockAttack = 0;
+        this->paperAttack = 0;
+        this->scissorsAttack = 0;
+        
+        this->rockDefence = 0;
+        this->paperDefence = 0;
+        this->scissorsDefence = 0;
 
     };
 
@@ -40,30 +40,22 @@ public:
         this->name = name;
     };
 
-    double get_attack()
-    {
-        return this->Attack;
-    };
-
-    void set_attack(double Attack)
-    {
-        this->Attack = Attack;
-    };
+   
 
     double get_rockAtk()
     {
         return this->rockAttack;
     }
-    void setRockAtk(double rockMultiplier) // sets rock/paper/scissor atk/def by multiplying base Atk/Def by modifier. Player will have items, and this will be defined in their class
+    void setRockAtk(double newRockAtk) // sets rock/paper/scissor atk/def by multiplying base Atk/Def by modifier. Player will have items, and this will be defined in their class
     {
         this->rockAttack =
-            this->Attack*rockMultiplier;
+            newRockAtk;
     };
 
-    void setPaperAtk(double paperMultiplier)
+    void setPaperAtk(double newPaperAtk)
     {
         this->paperAttack =
-            this->Attack*paperMultiplier;
+            newPaperAtk;
     };
 
     double get_PaperAtk()
@@ -71,10 +63,10 @@ public:
         return this->paperAttack;
     }
 
-    void setScissorsAtk(double scissorMultiplier)
+    void setScissorsAtk(double newScissorsAtk)
     {
-        this->rockAttack =
-            this->Attack*scissorMultiplier;
+        this->scissorsAttack =
+            newScissorsAtk;
     };
 
     double get_ScissorsAtk()
@@ -82,9 +74,9 @@ public:
         return this->scissorsAttack;
     }
 
-    void setRockDef(double rockDefence)
+    void setRockDef(double newRockDef)
     {
-        this->rockDefence = this->Defence*rockDefence;
+        this->rockDefence=newRockDef;
     };
 
     double get_rockDef()
@@ -92,9 +84,9 @@ public:
         return this->rockDefence;
     };
 
-    void setPaperDef(double paperDefence)
+    void setPaperDef(double newPaperDef)
     {
-        this->paperDefence = this->Defence *paperDefence;
+        this->paperDefence=newPaperDef;
     };
 
     double get_paperDef()
@@ -102,9 +94,9 @@ public:
         return this->paperDefence;
     };
 
-    void setScissorsDef(double scissorDefence)
+    void setScissorsDef(double newScissorDef)
     {
-        this->scissorsDefence = this->Defence*scissorDefence;
+        this->scissorsDefence=newScissorDef;
     };
 
     double get_scissorsDef()
@@ -112,11 +104,11 @@ public:
         return this->scissorsDefence;
     };
 
-    int getHP (){
+    int get_HP (){
         return this->HP;
     }
 
-    void setHP(int newHP){
+    void set_HP(int newHP){
         this->HP= newHP;
     }
 

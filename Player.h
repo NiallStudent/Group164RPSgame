@@ -13,6 +13,8 @@ private:
    
     weapon currentweapon;
     Armour currentarmour;
+    double attack;
+    double defence;
 
 public:
 
