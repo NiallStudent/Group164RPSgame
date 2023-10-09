@@ -5,18 +5,10 @@ using namespace std;
 #include "Player.h"
 
 int main(){
-    Player player("Niall",100,20,30);
-    weapon w(101,"Better Sword","This sword is better than the default sword",4,4,4);
-    //Armour a;
-
-    cout<<player.getCurrentWeapon().get_name()<<endl;
-
-    player.setCurrentWeapon(w);
-    cout<<player.getCurrentWeapon().get_name()<<endl;
+    Player p;
+    cout<<p.get_name()<<endl;   
+    cout<<p.getCurrentWeapon().get_name();
     
-
-   
-
     
 
 };

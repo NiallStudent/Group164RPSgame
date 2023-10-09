@@ -5,35 +5,27 @@
 using namespace std;
 #include "Weapon.h"
 #include "Armour.h"
+#include "Actor.h"
 
-class Player
+class Player :public Actor
 {
 private:
-    string name;
-    int HP;
-    double Attack, rockAttack, paperAttack, scissorsAttack;
-    double Defence, rockDefence, paperDefence, scissorsDefence;
-    int gold;
+   
     weapon currentweapon;
     Armour currentarmour;
 
 public:
-    Player() : Player("defaultName", 100, 20, 20){};
-    Player(string name, int HP, double Attack, double Defence)
+
+    Player():Player("DefaultPlayerName",100,20,20){}
+    
+    Player(string argname, int argHP, int argAttack, int ArgDefence):Actor(argname,argHP,argAttack,ArgDefence)
     {
-        this->name = name;
-        this->Attack = Attack;
-        this->rockAttack = Attack;
-        this->paperAttack = Attack;
-        this->scissorsAttack = Attack;
-        this->Defence = Defence;
-        this->rockDefence = Defence;
-        this->paperDefence = Defence;
-        this->scissorsDefence = Defence;
+        
         this->currentweapon = weapon();
         this->currentarmour = Armour();
+        //Need to add inventory attribute
 
-        this->gold = 0;
+        
     };
 
     string get_name()
@@ -47,7 +39,7 @@ public:
 
     double get_attack()
     {
-        return this->Attack;
+        return this->get_attack();
     };
 
     void set_attack(double Attack)
