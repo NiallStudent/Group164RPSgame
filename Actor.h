@@ -20,6 +20,8 @@ public:
     Actor(string name, int HP)
     {
         this->name = name;
+
+        this->HP=HP;
     
         this->rockAttack = 0;
         this->paperAttack = 0;
@@ -46,35 +48,35 @@ public:
     {
         return this->rockAttack;
     }
-    void setRockAtk(double newRockAtk) // sets rock/paper/scissor atk/def by multiplying base Atk/Def by modifier. Player will have items, and this will be defined in their class
+    void set_rockAtk(double newRockAtk) // sets rock/paper/scissor atk/def by multiplying base Atk/Def by modifier. Player will have items, and this will be defined in their class
     {
         this->rockAttack =
             newRockAtk;
     };
 
-    void setPaperAtk(double newPaperAtk)
+    void set_paperAtk(double newPaperAtk)
     {
         this->paperAttack =
             newPaperAtk;
     };
 
-    double get_PaperAtk()
+    double get_paperAtk()
     {
         return this->paperAttack;
     }
 
-    void setScissorsAtk(double newScissorsAtk)
+    void set_scissorsAtk(double newScissorsAtk)
     {
         this->scissorsAttack =
             newScissorsAtk;
     };
 
-    double get_ScissorsAtk()
+    double get_scissorsAtk()
     {
         return this->scissorsAttack;
     }
 
-    void setRockDef(double newRockDef)
+    void set_rockDef(double newRockDef)
     {
         this->rockDefence=newRockDef;
     };
@@ -84,7 +86,7 @@ public:
         return this->rockDefence;
     };
 
-    void setPaperDef(double newPaperDef)
+    void set_paperDef(double newPaperDef)
     {
         this->paperDefence=newPaperDef;
     };
@@ -94,7 +96,7 @@ public:
         return this->paperDefence;
     };
 
-    void setScissorsDef(double newScissorDef)
+    void set_scissorsDef(double newScissorDef)
     {
         this->scissorsDefence=newScissorDef;
     };
