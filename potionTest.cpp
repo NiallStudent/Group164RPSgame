@@ -1,8 +1,7 @@
 #include <iostream>
-#include "Player.h"
 #include "combat1.h"
 #include <string>
-
+#include "Player.h"
 #include "Enemy.h"
 #include "Item.h"
 #include "Consumable.h"
@@ -22,19 +21,19 @@ int main() {
     cout<<"\n\n\n";
     cout<<pot.getDescription()<<endl<<pot.getName(); */
 
-    Consumable* item1 = new Potion();
+    Item* item1 = new Potion();
+    
+
+    vector<Item*> inventory;
+    inventory.push_back(item1);
     
 
    
-    p->addToInventory(item1);
-    
 
-   
-
-   /*  int i=0;
+    int i=0;
 
 
-cout<<"no of items in inventory: "<<p->getInventory().size();
+cout<<"no of items in inventory: "<<inventory.size()<<endl;
 
 
 
@@ -44,10 +43,10 @@ cout<<"no of items in inventory: "<<p->getInventory().size();
 
 int index=0;
 
-for (auto it : p->getInventory()) {
+for (auto it : inventory) {
         
         cout << "item name" << it->getName()<<endl;
-        }; */
+        };
            return 0;   
 
            
