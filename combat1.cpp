@@ -2,12 +2,14 @@
 #include <string>
 #include "combat1.h"
 using namespace std;
+#include "Player.h"
+#include "Enemy.h"
 
 combat::combat() {
 
 }
 
-int combat::playerAttack() {
+int combat::playerAttack(Player) {
     cout << "Choose your type of attack: (1 for rock, 2 for paper, 3 for scissor)" << endl;
     cin >> playerTypeOfAttack;
     switch (playerTypeOfAttack) {
@@ -56,6 +58,7 @@ int combat::playerDefense() {
 int combat::enemyAttack() {
 srand(time(0));
     enemyTypeOfAttack = rand() % 3 + 1;
+    
     switch (enemyTypeOfAttack) {
         case 1:
             cout << "The enemy performed a rock attack!" << endl;
@@ -70,7 +73,7 @@ srand(time(0));
     return enemyTypeOfAttack;
 }
 
-int combat::enemyDefense() {
+int combat::enemyDefense(Enemy) {
     srand(time(0));
     enemyTypeOfDefense = rand() % 3 + 1;
     switch (enemyTypeOfDefense) {
@@ -87,7 +90,9 @@ int combat::enemyDefense() {
     return enemyTypeOfDefense;
 }
 
-int combat::getDmgMultiplierFromPlayer() {
+int combat::getDmgMultiplierFromPlayer(Player player, Enemy enemy) {
+    cout<<"Player atk type"<<playerTypeOfAttack<<endl;
+    cout<<"Enemy def type"<<enemyTypeOfDefense<<endl;
     if (playerTypeOfAttack == enemyTypeOfDefense) {
         damageMultiplier = 1;
         cout << "Your ATK was on par with the enemy DEF, dealt 100% damage to the enemy!" << endl;
@@ -119,6 +124,77 @@ int combat::getDmgMultiplierFromEnemy() {
     return damageMultiplier;
 }
 
-int combat::getCurrentHP() {
+int combat::getPlayerCurrentHP() {
     return 1;
 }
+
+int combat::getEnemyCurrentHP() {
+    return 1;
+}
+
+void combat::playerDealtDmg(Player p, Enemy e){
+    cout<<"calculating dmg";
+    cout<<"Damage is being multiplied by "<<damageMultiplier;
+    double playerAtkCalc;
+    double enemyDefCalc;
+    //Evaluate player atk and enemy def option. get appropriate stat and use for dmg calc
+    switch (playerTypeOfAttack)
+    {
+    case 1:
+        playerAtkCalc=p.get_rockAtk();
+        break;
+    
+    
+    case 2:
+        playerAtkCalc=p.get_paperAtk();
+        break;
+
+    case 3:
+        playerAtkCalc=p.get_scissorsAtk();
+        cout<<"scissor atk is "<<p.get_scissorsAtk()<<endl;
+        break;
+    
+    default:
+        break;
+    }
+    cout<<"Player is attaking for "<<playerAtkCalc<<" base dmg"<<endl;
+
+    switch (enemyTypeOfDefense)
+    {
+    case 1:
+        enemyDefCalc=e.get_rockDef();
+        break;
+
+    case 2:
+        enemyDefCalc=e.get_paperDef();
+        break;
+
+    case 3:
+        enemyDefCalc=e.get_scissorsDef();
+        break;
+    
+    default:
+        break;
+    }
+
+    cout<<"enemy defends for "<<enemyDefCalc<<" base def"<<endl;
+
+    //Calcualte dmg. If dmg is <0, do at least 1 dmg;
+    double dmg = 0;
+    if (damageMultiplier*(playerAtkCalc-enemyDefCalc)<=0)
+    {
+        dmg=1;
+    }
+    else
+    {
+        dmg=damageMultiplier*(playerAtkCalc-enemyDefCalc);
+    }
+    
+    //change the enemy hp
+    cout<<"dmg to be delt "<<dmg<<endl;
+    cout<<"Current enemy hp "<<e.get_HP()<<endl;
+    int newEnemyHP=e.get_HP()-dmg;
+    e.set_HP(newEnemyHP);
+
+
+};

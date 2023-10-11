@@ -15,11 +15,26 @@ void testHP(Player p){
     }
     int HPTest = 80;
     p.set_HP(HPTest);
-    if (p.get_HP()!=80)
+    if (p.get_HP()!=HPTest)
     {
         cout<<"ERROR HP set"<<endl;
+        cout<<p.get_HP()<<endl;
 
     };
+
+    if (p.get_name()!="DefaultPlayerName")
+    {
+        cout<<"Error Name get"<<endl;
+        cout<<p.get_name()<<endl;
+    }
+    string newName = "newTestName";
+    p.set_name(newName);
+    if (p.get_name()!=newName)
+    {
+        cout<<"ERROR Name set"<<endl;
+        cout<<p.get_name();
+    }
+    
     
     
     
@@ -27,10 +42,7 @@ void testHP(Player p){
     
 public:
     void runTests(){
-        Player p("unit test player",100,20,20);
-        cout<<p.get_HP()<<endl;
-        Actor a("new actor",80);
-        cout<<a.get_HP();
+        Player p;
         testHP(p);
         
 

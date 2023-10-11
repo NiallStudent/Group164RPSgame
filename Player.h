@@ -25,21 +25,15 @@ public:
         
         this->Attack=argAttack;
         this->Defence=ArgDefence;
-        this->currentweapon = weapon();
-        this->currentarmour = Armour();
+        
+        
         //Need to add inventory attribute
 
         
     };
 
-    string get_name()
-    {
-        return this->name;
-    };
-    void set_name(string name)
-    {
-        this->name = name;
-    };
+    
+    
 
     double get_attack()
     {
@@ -51,10 +45,8 @@ public:
         this->Attack = Attack;
     };
 
-    double get_rockAtk()
-    {
-        return this->rockAttack;
-    }
+   
+    
     void set_rockAtk() // sets rock/paper/scissor atk/def by multiplying base Atk/Def by item modifier.
     {
         this->rockAttack =
@@ -67,10 +59,7 @@ public:
             this->currentweapon.get_rockAtk() * get_attack();
     };
 
-    double get_paperAtk()
-    {
-        return this->paperAttack;
-    }
+    
 
     void set_scissorsAtk()
     {
@@ -78,40 +67,28 @@ public:
             this->currentweapon.get_rockAtk() * get_attack();
     };
 
-    double get_scissorsAtk()
-    {
-        return this->scissorsAttack;
-    }
+   
 
     void set_rockDef()
     {
         this->rockDefence = this->Defence * currentarmour.get_rockDef();
     };
 
-    double get_rockDef()
-    {
-        return this->rockDefence;
-    };
+    
 
     void set_paperDef()
     {
         this->paperDefence = this->Defence * currentarmour.get_paperDef();
     };
 
-    double get_paperDef()
-    {
-        return this->paperDefence;
-    };
+   
 
     void set_scissorsDef()
     {
         this->scissorsDefence = this->Defence * currentarmour.get_scissorsDef();
     };
 
-    double get_scissorsDef()
-    {
-        return this->scissorsDefence;
-    };
+   
 
     void setCurrentWeapon(weapon newWeapon)
     { // change weapon and reset RPS atk with new multipliers
