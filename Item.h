@@ -16,25 +16,25 @@ protected:
     
 public:
     Item():Item(000,"defaultItem","DefaultItemDescription"){};
-    Item(int ID ,string name, string description){ //in future, auto generate id 
-        this->ID;
-        this->name=name;
-        this->description=description;
+    Item(int initID ,string initname, string initdescription){ //in future, auto generate id 
+        ID=initID;
+        name=initname;
+        description=initdescription;
         
     };
     ~Item(){};
 
     //only use getters. Should not be able to change item base stats once they are made;
     string getName(){
-        return this->name;
+        return name;
     };
 
     string getDescription(){
-        return this->description;
+        return description;
     };
 
     int getID(){
-        return this->ID;
+        return ID;
     }
 };
 

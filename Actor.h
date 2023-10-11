@@ -17,101 +17,101 @@ protected:
 
 public:
     Actor() : Actor("defaultActorName", 100){};
-    Actor(string name, int HP)
+    Actor(string argname, int argHP)
     {
-        this->name = name;
+        name = argname;
 
-        this->HP=HP;
+        HP=argHP;
     
-        this->rockAttack = 0;
-        this->paperAttack = 0;
-        this->scissorsAttack = 0;
+        rockAttack = 0;
+        paperAttack = 0;
+        scissorsAttack = 0;
         
-        this->rockDefence = 0;
-        this->paperDefence = 0;
-        this->scissorsDefence = 0;
+        rockDefence = 0;
+        paperDefence = 0;
+        scissorsDefence = 0;
 
     };
 
     string get_name()
     {
-        return this->name;
+        return name;
     };
     void set_name(string name)
     {
-        this->name = name;
+        name = name;
     };
 
    
 
     double get_rockAtk()
     {
-        return this->rockAttack;
+        return rockAttack;
     }
     void set_rockAtk(double newRockAtk) // sets rock/paper/scissor atk/def by multiplying base Atk/Def by modifier. Player will have items, and this will be defined in their class
     {
-        this->rockAttack =
+        rockAttack =
             newRockAtk;
     };
 
     void set_paperAtk(double newPaperAtk)
     {
-        this->paperAttack =
+        paperAttack =
             newPaperAtk;
     };
 
     double get_paperAtk()
     {
-        return this->paperAttack;
+        return paperAttack;
     }
 
     void set_scissorsAtk(double newScissorsAtk)
     {
-        this->scissorsAttack =
+        scissorsAttack =
             newScissorsAtk;
     };
 
     double get_scissorsAtk()
     {
-        return this->scissorsAttack;
+        return scissorsAttack;
     }
 
     void set_rockDef(double newRockDef)
     {
-        this->rockDefence=newRockDef;
+        rockDefence=newRockDef;
     };
 
     double get_rockDef()
     {
-        return this->rockDefence;
+        return rockDefence;
     };
 
     void set_paperDef(double newPaperDef)
     {
-        this->paperDefence=newPaperDef;
+        paperDefence=newPaperDef;
     };
 
     double get_paperDef()
     {
-        return this->paperDefence;
+        return paperDefence;
     };
 
     void set_scissorsDef(double newScissorDef)
     {
-        this->scissorsDefence=newScissorDef;
+        scissorsDefence=newScissorDef;
     };
 
     double get_scissorsDef()
     {
-        return this->scissorsDefence;
+        return scissorsDefence;
     };
 
     int get_HP (){
-        return this->HP;
+        return HP;
     }
 
     void set_HP(int newHP){
-        this->HP= newHP;
+        HP= newHP;
     }
 
     

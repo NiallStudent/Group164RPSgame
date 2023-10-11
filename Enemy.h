@@ -23,19 +23,19 @@ public:
    string rockAtkHint,string paperAtkHint,string scissorsAtkHint,
    string rockDefHint,string paperDefHint,string scissorsDefHint )
    :Actor(argName,ArgHP){
-    this->rockAttack=rAtk;
-    this->rockDefence=rDef;
-    this->paperAttack=pAtk;
-    this->paperDefence=pDef;
-    this->scissorsAttack=sAtk;
-    this->scissorsDefence=sDef;
+    rockAttack=rAtk;
+    rockDefence=rDef;
+    paperAttack=pAtk;
+    paperDefence=pDef;
+    scissorsAttack=sAtk;
+    scissorsDefence=sDef;
 
-    this->rockAtkHint=rockAtkHint;
-    this->paperAtkHint=paperAtkHint;
-    this->ScissorsAtkHint=scissorsAtkHint;
-    this->rockDefHint=rockDefence;
-    this->paperDefHint=paperDefence;
-    this->scissorsDefence=scissorsDefence;
+    rockAtkHint=rockAtkHint;
+    paperAtkHint=paperAtkHint;
+    ScissorsAtkHint=scissorsAtkHint;
+    rockDefHint=rockDefence;
+    paperDefHint=paperDefence;
+    scissorsDefence=scissorsDefence;
 
    }
 

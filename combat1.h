@@ -9,7 +9,7 @@ class combat {
         int playerTypeOfDefense;
         int enemyTypeOfAttack;
         int enemyTypeOfDefense;
-        int damageMultiplier;
+        double damageMultiplier;
     public:
         combat();
         int playerAttack(Player);

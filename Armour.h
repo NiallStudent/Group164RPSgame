@@ -12,35 +12,35 @@ private:
 
 public:
     Armour(/* args */) : Armour(200,"defaultArmour","defaultArmourDescription",2,2,2){};
-    Armour(int id, string name, string description, double rockDef, double paperDef, double scissorDef):Item(id,name,description)
+    Armour(int initID, string initname, string initdescription, double initialRockDef, double initialPaperDef, double initialScissorDef):Item(initID,initname,initdescription)
     {
-        this->rockDef = rockDef;
-        this->paperDef = paperDef;
-        this->ScissorsDef = scissorDef;
+        rockDef = initialRockDef;
+        paperDef = initialPaperDef;
+        ScissorsDef = initialScissorDef;
     }
 
     double get_rockDef(){
-        return this->rockDef;
+        return rockDef;
     }
 
     void set_rockDef(double newDef){
-        this->rockDef=newDef; 
+        rockDef=newDef; 
     }
 
     double get_paperDef(){
-        return this->paperDef;
+        return paperDef;
     }
 
     void set_paperDef(double newDef){
-        this->paperDef=newDef; 
+        paperDef=newDef; 
     }
 
     double get_scissorsDef(){
-        return this->ScissorsDef;
+        return ScissorsDef;
     }
 
     void set_scissorsDef(double newDef){
-        this->ScissorsDef=newDef; 
+        ScissorsDef=newDef; 
     }
 
 
