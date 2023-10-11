@@ -8,6 +8,7 @@ using namespace std;
 #include "Actor.h"
 #include "Item.h"
 #include "vector"
+#include "Consumable.h"
 
 class Player :public Actor
 {
@@ -118,6 +119,15 @@ public:
     {
         return currentarmour;
     }
+
+    //Inventory functions
+
+    void addToInventory(Consumable* con){
+        inventory.push_back(con);
+    }
+
+   
+
 
     ~Player(){};
 };

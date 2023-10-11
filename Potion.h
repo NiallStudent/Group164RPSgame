@@ -3,9 +3,9 @@
 
 #include <iostream>
 using namespace std;
-
-#include "Consumable.h"
 #include "Player.h"
+#include "Consumable.h"
+
 
 class Potion: public Consumable
 {
@@ -19,7 +19,7 @@ public:
         this->ID=302;
     };
     ~Potion(){};
-    void useItem(Player* p){
+    void  useItem(Player* p){
         int currentPlayerHP = p->get_HP();
         p->set_HP(currentPlayerHP+healAmount);
         cout<<"Healed 50 hp"<<endl;
