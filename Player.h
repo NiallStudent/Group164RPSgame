@@ -6,6 +6,8 @@ using namespace std;
 #include "Weapon.h"
 #include "Armour.h"
 #include "Actor.h"
+#include "Item.h"
+#include "vector"
 
 class Player :public Actor
 {
@@ -15,6 +17,7 @@ private:
     Armour currentarmour;
     double Attack;
     double Defence;
+    vector<Item *> inventory;
 
 public:
 
@@ -25,6 +28,7 @@ public:
         
         Attack=argAttack;
         Defence=ArgDefence;
+        
         
         
         //Need to add inventory attribute
