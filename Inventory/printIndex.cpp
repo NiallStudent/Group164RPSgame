@@ -25,18 +25,28 @@ int main() {
 
     int vLength=10;
 
-   Item* item1 = new Item;
-   Item* item2 = new Item;
+   Item* item1 = new Item("item 1");
+   Item* item2 = new Item("item 2");
     
 
     vector<Item*> inventory;
     inventory.push_back(item1);
     inventory.push_back(item2);
 
-    string nameMatch="item 2";
+    string nameMatch="skibidi";
 
     for (size_t i = 0; i < inventory.size(); ++i) {
     cout<<i+1<<": "<<inventory[i]->getName()<<endl;
+    if (inventory[i]->getName()==nameMatch)
+    {
+        cout<<"item found"<<endl;
+    }
+    else
+    {
+        cout<<"not found"<<endl;
+    }
+    
+    
     }
 
 
