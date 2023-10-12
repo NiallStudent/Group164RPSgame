@@ -25,12 +25,12 @@ using namespace std;
 
 void drawHUD(Player TestPlayer, int currentLevel){
 
-int hudNameSpacer = 26 - TestPlayer.get_name().size();
+int hudNameSpacer = 26 - TestPlayer.get_name().size();                          //Used to make spacing consistent with different length names
 int hudWpnSpacer = 20 - TestPlayer.getCurrentWeapon().getName().size();
 int hudAmrSpacer = 20 - TestPlayer.getCurrentArmour().getName().size();
-int rAtkInt = TestPlayer.getCurrentWeapon().get_rockAtk();          //voodoo to make the spacing in the HUD work nicely later
+int rAtkInt = TestPlayer.getCurrentWeapon().get_rockAtk();          // Same as above, but starting with a double complicates things
 string rAtk = to_string(rAtkInt);                                   //convert double to int, then to string to get value length
-int pAtkInt = TestPlayer.getCurrentWeapon().get_paperAtk();         //so that can be used to determine spacing shouldn't break until very high values.
+int pAtkInt = TestPlayer.getCurrentWeapon().get_paperAtk();         //so that can be used to determine spacing. 
 string pAtk = to_string(pAtkInt);
 int sAtkInt = TestPlayer.getCurrentWeapon().get_scissorsAtk();
 string sAtk = to_string(sAtkInt);
@@ -48,10 +48,11 @@ int rDefSpace = rDef.size();
 int pDefSpace = pDef.size();
 int sDefSpace = sDef.size();
 int allDefSpace = rDefSpace + pDefSpace + sDefSpace;
-    // creating a display to contain current important information
+
+    // Creating the box
 cout << "╔═════════════════════════════════════════════════════════════╗"<<endl;       //HUD is 63 wide, 2 are the walls
 cout << "║ " << TestPlayer.get_name();
-for (int i = 0; i < hudNameSpacer; i++){cout << " ";} //adding approrpriate spaces given name length
+for (int i = 0; i < hudNameSpacer; i++){cout << " ";}     //adding approrpriate spaces given name length
 if (TestPlayer.get_HP() < 100 ){cout << " ";}             //adding appropriate spaces given current HP
 if (TestPlayer.get_HP() < 10 ){cout << " ";}              //adding appropriate spaces given current HP
 cout << TestPlayer.get_HP() << "/100" << "                "/*16 spaces*/;
