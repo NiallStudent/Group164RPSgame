@@ -12,7 +12,6 @@ int main() {
 
     while (true) {
         rewardSystem.displayRandomRewards();
-        cout << "-----------------------------------" << endl;
     }
 
     return 0;
