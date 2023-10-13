@@ -1,5 +1,7 @@
-#ifndef COMBAT1_H
-#define COMBAT1_H
+#ifndef COMBAT_H
+#define COMBAT_H
+#include "Actor.h"
+#include "RewardSystem.h"
 
 class combat {
     private:
@@ -21,7 +23,7 @@ class combat {
         void enemyDealtDmg();
         int getPlayerCurrentHP();
         int getEnemyCurrentHP();
-        void checkWin();
-        void checkLose();
+        void checkWin(RewardSystem _rewardSystem);
+        void checkLose(Actor _player);
 };
 #endif

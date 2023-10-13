@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "combat1.h"
+#include "combat.h"
+#include "RewardSystem.h"
 using namespace std;
 
 combat::combat() {
@@ -13,6 +14,7 @@ int combat::playerAttack() {
     switch (playerTypeOfAttack) {
     case 1:
         cout << "You performed a rock attack!" << endl;
+        
         return 1;
         break;
     case 2:
@@ -129,17 +131,18 @@ void combat::enemyDealtDmg() {
     //player.hp = player.hp - enemy.atk*damageMultiplier
 }
 
-void combat::checkWin() {
+void combat::checkWin(RewardSystem _rewardSystem) {
     // if enemy.health == 0 {
-        cout << "Congratulation! You have defeated an enemy!"
+        cout << "Congratulation! You have defeated an enemy!";
 
         //Condition if not the last enemy -> choose reward
-        reward();
+        _rewardSystem.displayRandomRewards();
     // }
 }
 
-void combat::checkLose() {
-    // if player.health == 0 {
+void combat::checkLose(Actor _player) {
+    while (_player.get_HP() < 0) {
         cout << "You died! Game over!" << endl;
         break;
     }
+}

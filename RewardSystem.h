@@ -15,35 +15,37 @@ struct Reward {
 class RewardSystem {
 private:
     vector<Reward> rewards;
-    // A function to check if a reward with a specific index has been chosen (Equipment)
-    bool hasChosenReward(int index) {
-        cout << index << endl;
-        for (const Reward& reward : chosenRewards) {
-            if (reward.index == index) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // // A function to check if a reward with a specific index has been chosen (Equipment)
+    // bool hasChosenReward(int index) {
+    //     for (const Reward& reward : chosenRewards) {
+    //         if (reward.index == index) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
-    // Remove a specific reward from the storage
-    void removeReward(int index) {
-        for (size_t i = 0; i < rewards.size(); ++i) {
-            if (rewards[i].index == index) {
-                rewards.erase(rewards.begin() + i);
-                break;
-            }
-        }
-    }
+    // // Remove a specific reward from the storage
+    // void removeReward(int index) {
+    //     for (size_t i = 0; i < rewards.size(); ++i) {
+    //         if (rewards[i].index == index) {
+    //             rewards.erase(rewards.begin() + i);
+    //             break;
+    //         }
+    //     }
+    // }
 
     vector<Reward> chosenRewards;  // Keep track of chosen rewards
 public:
     RewardSystem() {
         // Initialize the storage with 15 different rewards with attributes and indices
 
-        // Equipments
-        rewards.push_back({1, "Drago Vest", 1.5});
-        rewards.push_back({2, "Demon Sword", 1.5});
+        // // Equipments
+        // rewards.push_back({1, "Drago Vest", 10});
+        // // Rock weapon
+        // rewards.push_back({8, "Club", 1.5});
+        // // Scissors weapon
+        // rewards.push_back({2, "Demon Sword", 1.5});
         
         // Base stats
         rewards.push_back({3, "+10 base ATK", 10});
@@ -59,7 +61,7 @@ public:
 
     }
 
-    void displayRandomRewards() {
+    virtual void displayRandomRewards() {
 
         // Prompt player to choose reward
         cout << "Choose one of the following rewards:" << endl;

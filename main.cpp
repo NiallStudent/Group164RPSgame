@@ -1,5 +1,5 @@
 #include <iostream>
-#include "combat1.h"
+#include "combat.h"
 #include <string>
 #include "Player.h"
 #include "Enemy.h"
