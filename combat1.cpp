@@ -2,15 +2,13 @@
 #include <string>
 #include "combat1.h"
 using namespace std;
-#include "Player.h"
-#include "Enemy.h"
 
 combat::combat() {
 
 }
 
-int combat::playerAttack(Player) {
-    cout << "Choose your type of attack: (1 for rock, 2 for paper, 3 for scissor)" << endl;
+int combat::playerAttack() {
+    cout << "Choose your type of attack: (1 for rock, 2 for paper, 3 for scissor): " << endl;
     cin >> playerTypeOfAttack;
     switch (playerTypeOfAttack) {
     case 1:
@@ -26,30 +24,30 @@ int combat::playerAttack(Player) {
         return 3;
         break;
     default:
-        cout << "Invalid number, please try again" << endl;
+        cout << "Invalid number, please try again!" << endl;
         return 0;
         break;
     }
 }
 
 int combat::playerDefense() {
-    cout << "Choose your type of defense: (1 for rock, 2 for paper, 3 for scissor)" << endl;
+    cout << "Choose your type of defence: (1 for rock, 2 for paper, 3 for scissor): " << endl;
     cin >> playerTypeOfDefense;
     switch (playerTypeOfDefense) {
     case 1:
-        cout << "You performed a rock defense!" << endl;
+        cout << "You performed a rock defence!" << endl;
         return 1;
         break;
     case 2:
-        cout << "You performed a paper defense!" << endl;
+        cout << "You performed a paper defence!" << endl;
         return 2;
         break;
     case 3:
-        cout << "You performed a scissor defense!" << endl;
+        cout << "You performed a scissor defence!" << endl;
         return 3;
         break;
     default:
-        cout << "Invalid number, please try again" << endl;
+        cout << "Invalid number, please try again!" << endl;
         return 0;
         break;
     }
@@ -58,7 +56,6 @@ int combat::playerDefense() {
 int combat::enemyAttack() {
 srand(time(0));
     enemyTypeOfAttack = rand() % 3 + 1;
-    
     switch (enemyTypeOfAttack) {
         case 1:
             cout << "The enemy performed a rock attack!" << endl;
@@ -73,26 +70,24 @@ srand(time(0));
     return enemyTypeOfAttack;
 }
 
-int combat::enemyDefense(Enemy) {
+int combat::enemyDefense() {
     srand(time(0));
     enemyTypeOfDefense = rand() % 3 + 1;
     switch (enemyTypeOfDefense) {
         case 1:
-            cout << "The enemy performed a rock defense!" << endl;
+            cout << "The enemy performed a rock defence!" << endl;
             break;
         case 2:
-            cout << "The enemy performed a paper defense!" << endl;
+            cout << "The enemy performed a paper defence!" << endl;
             break;
         case 3:
-            cout << "The enemy performed a scissor defense!" << endl;
+            cout << "The enemy performed a scissor defence!" << endl;
             break;
     }
     return enemyTypeOfDefense;
 }
 
-int combat::getDmgMultiplierFromPlayer(Player player, Enemy enemy) {
-    cout<<"Player atk type"<<playerTypeOfAttack<<endl;
-    cout<<"Enemy def type"<<enemyTypeOfDefense<<endl;
+int combat::getDmgMultiplierFromPlayer() {
     if (playerTypeOfAttack == enemyTypeOfDefense) {
         damageMultiplier = 1;
         cout << "Your ATK was on par with the enemy DEF, dealt 100% damage to the enemy!" << endl;
@@ -124,77 +119,27 @@ int combat::getDmgMultiplierFromEnemy() {
     return damageMultiplier;
 }
 
-int combat::getPlayerCurrentHP() {
-    return 1;
+void combat::playerDealtDmg() {
+    cout << "You have dealt " << //player.atk*damageMultiplier*player.weapon << " to the enemy!" << endl;
+    //enemy.hp = enemy.hp - player.atk*damageMultiplier*player.weapon
 }
 
-int combat::getEnemyCurrentHP() {
-    return 1;
+void combat::enemyDealtDmg() {
+    cout << "Enemy has dealt " << //enemy.atk*damageMultiplier << " to you!" << endl;
+    //player.hp = player.hp - enemy.atk*damageMultiplier
 }
 
-void combat::playerDealtDmg(Player p, Enemy e){
-    cout<<"calculating dmg";
-    cout<<"Damage is being multiplied by "<<damageMultiplier;
-    double playerAtkCalc;
-    double enemyDefCalc;
-    //Evaluate player atk and enemy def option. get appropriate stat and use for dmg calc
-    switch (playerTypeOfAttack)
-    {
-    case 1:
-        playerAtkCalc=p.get_rockAtk();
-        break;
-    
-    
-    case 2:
-        playerAtkCalc=p.get_paperAtk();
-        break;
+void combat::checkWin() {
+    // if enemy.health == 0 {
+        cout << "Congratulation! You have defeated an enemy!"
 
-    case 3:
-        playerAtkCalc=p.get_scissorsAtk();
-        cout<<"scissor atk is "<<p.get_scissorsAtk()<<endl;
-        break;
-    
-    default:
+        //Condition if not the last enemy -> choose reward
+        reward();
+    // }
+}
+
+void combat::checkLose() {
+    // if player.health == 0 {
+        cout << "You died! Game over!" << endl;
         break;
     }
-    cout<<"Player is attaking for "<<playerAtkCalc<<" base dmg"<<endl;
-
-    switch (enemyTypeOfDefense)
-    {
-    case 1:
-        enemyDefCalc=e.get_rockDef();
-        break;
-
-    case 2:
-        enemyDefCalc=e.get_paperDef();
-        break;
-
-    case 3:
-        enemyDefCalc=e.get_scissorsDef();
-        break;
-    
-    default:
-        break;
-    }
-
-    cout<<"enemy defends for "<<enemyDefCalc<<" base def"<<endl;
-
-    //Calcualte dmg. If dmg is <0, do at least 1 dmg;
-    double dmg = 0;
-    if (damageMultiplier*(playerAtkCalc-enemyDefCalc)<=0)
-    {
-        dmg=1;
-    }
-    else
-    {
-        dmg=damageMultiplier*(playerAtkCalc-enemyDefCalc);
-    }
-    
-    //change the enemy hp
-    cout<<"dmg to be delt "<<dmg<<endl;
-    cout<<"Current enemy hp "<<e.get_HP()<<endl;
-    int newEnemyHP=e.get_HP()-dmg;
-    e.set_HP(newEnemyHP);
-
-
-};

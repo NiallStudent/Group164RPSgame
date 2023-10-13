@@ -1,26 +1,27 @@
 #ifndef COMBAT1_H
 #define COMBAT1_H
 
-#include "Player.h"
-#include "Enemy.h"
 class combat {
     private:
         int playerTypeOfAttack;
         int playerTypeOfDefense;
         int enemyTypeOfAttack;
         int enemyTypeOfDefense;
-        double damageMultiplier;
+        int damageMultiplier;
+
     public:
         combat();
-        int playerAttack(Player);
+        int playerAttack();
         int playerDefense();
         int enemyAttack();
-        int enemyDefense(Enemy);
-        int getDmgMultiplierFromPlayer(Player, Enemy);
+        int enemyDefense();
+        int getDmgMultiplierFromPlayer();
         int getDmgMultiplierFromEnemy();
-        void playerDealtDmg(Player,Enemy);
+        void playerDealtDmg();
         void enemyDealtDmg();
         int getPlayerCurrentHP();
         int getEnemyCurrentHP();
+        void checkWin();
+        void checkLose();
 };
 #endif
