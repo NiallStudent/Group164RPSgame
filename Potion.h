@@ -4,36 +4,33 @@
 #include <iostream>
 using namespace std;
 
-#include "Consumable.h"
-#include "Player.h"
 
-class Potion: public Consumable
+#include "Consumable.h"
+
+class Player;
+
+class Potion : public Consumable
 {
 private:
-    int healAmount=50;
+    int healAmount = 50;
+
 public:
-    
-    Potion(){
-        description="Heals 50hp. Can heal past starting hp";
-        name="Healing Potion";
-        this->ID=302;
+    Potion()
+    {
+        description = "Heals 50hp. Can heal past starting hp";
+        name = "Healing Potion";
+        this->ID = 302;
     };
     ~Potion(){};
-    void useItem(Player* p){
+
+    // THis is giving errors, player has not been declared
+    void useItem(Player *p)
+    {
         int currentPlayerHP = p->get_HP();
-        p->set_HP(currentPlayerHP+healAmount);
-        cout<<"Healed 50 hp"<<endl;
+        p->set_HP(currentPlayerHP + healAmount);
+        cout << "Healed 50 hp" << endl;
     };
 
 };
-
-
-
-
-
-
-
-
-
-
 #endif
+

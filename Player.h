@@ -8,6 +8,10 @@ using namespace std;
 #include "Actor.h"
 #include "Item.h"
 #include "vector"
+class Consumable;
+class Potion;
+class Bomb;
+
 
 class Player :public Actor
 {
@@ -17,9 +21,12 @@ private:
     Armour currentarmour;
     double Attack;
     double Defence;
-    vector<Item *> inventory;
+    vector<Consumable*> inventory;
+    
 
 public:
+
+    
 
     Player():Player("DefaultPlayerName",100,20,20){}
     
@@ -28,6 +35,12 @@ public:
         
         Attack=argAttack;
         Defence=ArgDefence;
+        inventory= {};
+        currentweapon= weapon();
+        currentarmour=Armour();
+        setCurrentWeapon(getCurrentWeapon());
+        
+
         
         
         
@@ -41,12 +54,24 @@ public:
 
     double get_attack()
     {
-        return get_attack();
+        return Attack;
     };
 
-    void set_attack(double Attack)
+    
+
+    void set_attack(double argAttack)
     {
-        Attack = Attack;
+        Attack = argAttack;
+    };
+
+    double get_defene()
+    {
+        return Defence;
+    };
+
+    void set_defence(double argDefence)
+    {
+        Defence = argDefence;
     };
 
    
@@ -118,6 +143,24 @@ public:
     {
         return currentarmour;
     }
+
+
+    void addToInventory(Consumable* newItem){
+        inventory.push_back(newItem);
+    }
+
+    void getSizeofInv(){
+        cout<<inventory.size()<<"Size of inv \n";
+    }
+
+    Consumable* get_item(int index){
+        return this->inventory[index];
+
+    };
+
+    /* void useInvItem(int index){
+        inventory.at(index)->useItem(this);
+    } */
 
     ~Player(){};
 };

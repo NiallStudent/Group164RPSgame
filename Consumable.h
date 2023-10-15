@@ -3,9 +3,8 @@
 
 #include <iostream>
 using namespace std;
-
-#include "Item.h"
 #include "Player.h"
+#include "Item.h"
 
 class Consumable: public Item
 {
@@ -13,18 +12,14 @@ private:
     
 public:
     
-    virtual void useItem(Player*)=0;
-    Consumable();
-    ~Consumable();
+     virtual void useItem(Player* p){
+        cout<<"used default consumable"<<endl;
+    }; 
+    Consumable(){};
+    ~Consumable(){};
 };
 
-Consumable::Consumable(/* args */)
-{
-}
 
-Consumable::~Consumable()
-{
-}
 
 
 
