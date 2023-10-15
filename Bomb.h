@@ -4,11 +4,12 @@
 #include <iostream>
 using namespace std;
 
+class Player;
+class Enemy;
 
 #include "Consumable.h"
 
-class Player;
-class Enemy;
+
 
 class Bomb : public Consumable
 {
@@ -25,11 +26,11 @@ public:
     ~Bomb(){};
 
     // THis is giving errors, player has not been declared
-    void useItem(Enemy *e)
+    virtual void useItem(Actor *e) override
     {
-        int currentPlayerHP = ;
-        p->set_HP(currentPlayerHP + damageAmount);
-        cout << "Healed 50 hp" << endl;
+        int enemyHP=e->get_HP();
+        e->set_HP(enemyHP-damageAmount);
+        cout<<"KAMBOOM"<<endl;
     };
 
 };

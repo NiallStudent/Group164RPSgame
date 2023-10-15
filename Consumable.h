@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include "Player.h"
+#include "Enemy.h"
 #include "Item.h"
 
 class Consumable: public Item
@@ -12,9 +13,10 @@ private:
     
 public:
     
-     virtual void useItem(Player* p){
-        cout<<"used default consumable"<<endl;
-    }; 
+     virtual void useItem(Actor* a){
+        cout<<"called consumable player useItem()";
+     }; 
+
     Consumable(){};
     ~Consumable(){};
 };

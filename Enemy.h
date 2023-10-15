@@ -4,6 +4,9 @@
 #include <iostream>
 using namespace std;
 #include "Actor.h"
+class Consumable;
+class Potion;
+class Bomb;
 
 
 class Enemy: public Actor

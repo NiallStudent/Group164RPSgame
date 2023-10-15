@@ -24,7 +24,7 @@ public:
     ~Potion(){};
 
     // THis is giving errors, player has not been declared
-    void useItem(Player *p)
+    virtual void useItem(Actor *p) override
     {
         int currentPlayerHP = p->get_HP();
         p->set_HP(currentPlayerHP + healAmount);
