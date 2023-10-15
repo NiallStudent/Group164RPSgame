@@ -10,9 +10,8 @@ int main() {
 
     RewardSystem rewardSystem;
 
-    while (true) {
         rewardSystem.displayRandomRewards();
-    }
+
 
     return 0;
 }

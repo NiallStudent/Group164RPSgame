@@ -37,14 +37,22 @@ public:
 
     double get_attack()
     {
-        return get_attack();
+        return Attack;
     };
 
-    void set_attack(double Attack)
+    void set_attack(double _Attack)
     {
-        Attack = Attack;
+        Attack = _Attack;
+    };
+    double get_defence()
+    {
+        return Defence;
     };
 
+    void set_defence(double _Defence)
+    {
+        Defence = _Defence;
+    };
    
     
     void set_rockAtk() // sets rock/paper/scissor atk/def by multiplying base Atk/Def by item modifier.
