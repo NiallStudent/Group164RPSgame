@@ -1,0 +1,16 @@
+saveplayer
+123
+22
+11
+0
+SaveBlade
+save blade description
+3
+3
+3
+123
+SaveArmour
+save descripiton
+33
+44
+44

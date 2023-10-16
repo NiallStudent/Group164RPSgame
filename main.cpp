@@ -78,7 +78,25 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
             switch (inventoryChoice)
             {
             case 1:
-               //inventory code here//
+               activePlayer.display();
+               cout<<"please select an item"<<endl;
+               int inventoryIndex;
+               cin>>inventoryIndex;
+              if (activePlayer.get_item(inventoryIndex)->getName()=="Healing Potion"){
+              
+                activePlayer.get_item(inventoryIndex)->useItem(&activePlayer);
+                activePlayer.removeItem(inventoryIndex);
+              }
+              else
+              {
+                activePlayer.get_item(inventoryIndex)->useItem(activeEnemy);
+                activePlayer.removeItem(inventoryIndex);
+              }
+              
+              
+              
+              
+
 
 
                isAttacking = false;
