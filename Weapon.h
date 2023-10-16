@@ -22,9 +22,7 @@ public:
     };
     ~weapon(){};
 
-    string get_name(){
-        return this->name;
-    }
+    
 
     
 

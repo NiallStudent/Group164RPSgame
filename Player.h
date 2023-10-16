@@ -41,7 +41,8 @@ public:
         inventory= {};
         currentweapon= weapon();
         currentarmour=Armour();
-        setCurrentWeapon(getCurrentWeapon());        
+        setCurrentWeapon(getCurrentWeapon());   
+        setCurrentArmour(getCurrentArmour());     
     };
 
     
@@ -59,7 +60,7 @@ public:
         Attack = argAttack;
     };
 
-    double get_defene()
+    double get_defense()
     {
         return Defence;
     };
@@ -116,7 +117,7 @@ public:
         
         currentweapon = newWeapon;
         
-        cout << newWeapon.get_name() << endl;
+        //cout << newWeapon.get_name() << endl;
 
         set_rockAtk();
          set_paperAtk();

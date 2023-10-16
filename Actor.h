@@ -37,9 +37,9 @@ public:
     {
         return name;
     };
-    void set_name(string name)
+    void set_name(string argName)
     {
-        name = name;
+        name = argName;
     };
 
    
