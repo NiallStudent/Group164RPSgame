@@ -1,5 +1,5 @@
 #include <iostream>
-#include "combat1.h"
+//#include "combat1.h"
 #include <string>
 #include "Player.h"
 #include "Enemy.h"
@@ -15,7 +15,7 @@ extern void drawHUD(Player,int);
 
 int main() {
     //create player, enemy and items for testing.
-    combat A;
+    //combat A;
     Player* p = new Player("Test",100,20,20);
     Potion* pot = new Potion();
     Bomb* bob= new Bomb();
