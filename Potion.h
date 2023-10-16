@@ -3,10 +3,8 @@
 
 #include <iostream>
 using namespace std;
-
-
 #include "Consumable.h"
-
+//Forward declare player to avoid circular calls.
 class Player;
 
 class Potion : public Consumable

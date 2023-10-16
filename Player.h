@@ -8,6 +8,8 @@ using namespace std;
 #include "Actor.h"
 #include "Item.h"
 #include "vector"
+#include "Consumable.h"
+//forward declare these to avoid circular declaration
 class Consumable;
 class Potion;
 class Bomb;
@@ -150,13 +152,37 @@ public:
     }
 
     void getSizeofInv(){
-        cout<<inventory.size()<<"Size of inv \n";
+        cout<<inventory.size()<<": Size of inv \n";
     }
 
     Consumable* get_item(int index){
         return this->inventory[index];
 
     };
+
+    void removeItem(int index){
+        this->inventory.erase(inventory.begin()+index);
+    }
+
+     
+     void display(){
+
+    if (this->inventory.empty())
+    {
+        cout<<"No items in inventory"<<endl;
+    }
+    else
+    {
+        int i =0;
+     for (Consumable* ptr : inventory) {
+        cout<<i<<" "<<ptr->getName()<<endl;
+        i++;
+    }
+     }
+
+     }
+
+    
 
     /* void useInvItem(int index){
         inventory.at(index)->useItem(this);

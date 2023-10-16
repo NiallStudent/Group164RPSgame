@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Player;
+//forward declare enemy to avoid circular declaraiton.
 class Enemy;
 
 #include "Consumable.h"
@@ -25,7 +25,7 @@ public:
     };
     ~Bomb(){};
 
-    // THis is giving errors, player has not been declared
+    
     virtual void useItem(Actor *e) override
     {
         int enemyHP=e->get_HP();
