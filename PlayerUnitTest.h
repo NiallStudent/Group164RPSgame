@@ -6,33 +6,33 @@ class PlayerUnitTest
 {
 private:
 
-void testHP(Player p){
-    if (p.get_HP()!=100)
+void testHP(Player TestPlayer){
+    if (TestPlayer.get_HP()!=100)
     {
         cout<<"ERROR HP get"<<endl;
-        cout<<p.get_HP()<<endl;
+        cout<<TestPlayer.get_HP()<<endl;
         
     }
     int HPTest = 80;
-    p.set_HP(HPTest);
-    if (p.get_HP()!=HPTest)
+    TestPlayer.set_HP(HPTest);
+    if (TestPlayer.get_HP()!=HPTest)
     {
         cout<<"ERROR HP set"<<endl;
-        cout<<p.get_HP()<<endl;
+        cout<<TestPlayer.get_HP()<<endl;
 
     };
 
-    if (p.get_name()!="DefaultPlayerName")
+    if (TestPlayer.get_name()!="DefaultPlayerName")
     {
         cout<<"Error Name get"<<endl;
-        cout<<p.get_name()<<endl;
+        cout<<TestPlayer.get_name()<<endl;
     }
     string newName = "newTestName";
-    p.set_name(newName);
-    if (p.get_name()!=newName)
+    TestPlayer.set_name(newName);
+    if (TestPlayer.get_name()!=newName)
     {
         cout<<"ERROR Name set"<<endl;
-        cout<<p.get_name();
+        cout<<TestPlayer.get_name();
     }
     
     
@@ -42,8 +42,8 @@ void testHP(Player p){
     
 public:
     void runTests(){
-        Player p;
-        testHP(p);
+        Player TestPlayer;
+        testHP(TestPlayer);
         
 
     }
