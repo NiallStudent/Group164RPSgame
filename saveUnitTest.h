@@ -11,11 +11,11 @@ class saveUnitTest
 {
 private:
 
-void loadSaveTest(){
+void loadSaveTest(Player savePlayer,weapon saveWeapon, Armour savearmour){
     //Write data for Player, weapon and armour into txt file
-     Player savePlayer("saveplayer",123,22,11);
+     /* Player savePlayer("saveplayer",123,22,11);
      weapon saveWeapon(00,"SaveBlade","save blade description",3,3,3);
-     Armour savearmour(123,"SaveArmour","save descripiton",33,44,44);
+     Armour savearmour(123,"SaveArmour","save descripiton",33,44,44); */
     fstream data_file;
     data_file.open("saveFile.txt", ios::out);
     if (data_file.is_open()) {        
@@ -140,8 +140,8 @@ void loadSaveTest(){
 }
     
 public:
-void runTests(){
-    loadSaveTest();
+void runTests(Player p, weapon w, Armour a){
+    loadSaveTest(p,w,a);
 }
     saveUnitTest(/* args */);
     ~saveUnitTest();
