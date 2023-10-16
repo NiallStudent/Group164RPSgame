@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "RewardSystem.h"
+#include "Enemy.h"
+#include "Player.h"
 #include <string>
 using namespace std;
 
@@ -22,17 +24,20 @@ class combat {
         double enemyHP;
     public:
         combat();
-        void playerAttackType(Player _player);          // Get atk type from player
-        void playerDefenceType(Player _player);         // Get def type from player
-        void enemyAttackType(Enemy _enemy);             // Choose atk type for enemy
-        void enemyDefenceType(Enemy _enemy);            // Choose def type for enemy
+        void playerAttackType(Player);          // Get atk type from player
+        void playerDefenceType(Player);         // Get def type from player
+        void enemyAttackType(Enemy);             // Choose atk type for enemy
+        void enemyDefenceType(Enemy);            // Choose def type for enemy
         double getDmgMultiplierFromPlayer();            // Get dmg multiplier base on player atk type and enemy def type
         double getDmgMultiplierFromEnemy();             // Get dmg multiplier base on player def type and enemy atk type
-        void playerDmgDealt(Player _player);            // Calc Dmg dealt by player
-        void playerDmgTaken(Enemy _enemy);              // Calc Dmg taken by player
-        void playerHPCalc(Player _player);              // Calc player's HP after combat
-        void enemyHPCalc(Enemy _enemy);                 // Calc enemy's HP after combat
-        bool checkWin(RewardSystem _reward);            // Give reward to player if they won the combat
-        void checkLose();                               // Check if player lost the combat
+        void playerDmgDealt(Player, Enemy*);            // Calc Dmg dealt by player and subtract from enemy HP
+        void playerDmgTaken(Enemy, Player*);              // Calc Dmg taken by player
+        //void playerHPCalc(Player _player);              // Calc player's HP after combat
+        //void enemyHPCalc(Enemy _enemy);                 // Calc enemy's HP after combat
+        bool checkWin(Enemy);            // Give reward to player if they won the combat
+        bool checkLose(Player);                               // Check if player lost the combat
+        void drawHUD(Player*, int);
+        void drawEnemyHUD(Enemy*, int);
+        Enemy* createEnemyList();
 };
 #endif

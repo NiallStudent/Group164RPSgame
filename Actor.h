@@ -56,8 +56,7 @@ public:
 
     void set_paperAtk(double newPaperAtk)
     {
-        paperAttack =
-            newPaperAtk;
+        paperAttack = newPaperAtk;
     };
 
     double get_paperAtk()
@@ -67,8 +66,7 @@ public:
 
     void set_scissorsAtk(double newScissorsAtk)
     {
-        scissorsAttack =
-            newScissorsAtk;
+        scissorsAttack = newScissorsAtk;
     };
 
     double get_scissorsAtk()
