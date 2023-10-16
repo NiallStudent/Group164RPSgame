@@ -121,7 +121,7 @@ public:
 
         set_rockAtk();
          set_paperAtk();
-         set_scissorsDef();
+         set_scissorsAtk();
     }
 
     weapon getCurrentWeapon()

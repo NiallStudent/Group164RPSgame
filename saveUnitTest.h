@@ -1,16 +1,18 @@
+#ifndef SAVEUNITTEST_H
+#define SAVEUNITTEST_H
+
 #include<iostream>
 using namespace std;
 #include "string"
 #include <fstream>
-#include "PlayerUnitTest.h"
-#include "saveUnitTest.h"
+#include "Player.h"
 
-int main(){
-    PlayerUnitTest put;
-    put.runTests();
-    saveUnitTest sut;
-    sut.runTests();
-    /* Player savePlayer("saveplayer",123,22,11);
+class saveUnitTest
+{
+private:
+
+void loadSaveTest(){
+     Player savePlayer("saveplayer",123,22,11);
     fstream data_file;
     data_file.open("saveFile.txt", ios::out);
     if (data_file.is_open()) {        
@@ -58,9 +60,24 @@ int main(){
         cout<<loadPlayer.get_HP()<<endl;
         cout<<loadPlayer.get_attack()<<endl;
         cout<<loadPlayer.get_defense()<<endl;
-    }  */
-
-   
-
-    return 0;
+    } 
 }
+    
+public:
+void runTests(){
+    loadSaveTest();
+}
+    saveUnitTest(/* args */);
+    ~saveUnitTest();
+};
+
+saveUnitTest::saveUnitTest(/* args */)
+{
+}
+
+saveUnitTest::~saveUnitTest()
+{
+}
+
+
+#endif
