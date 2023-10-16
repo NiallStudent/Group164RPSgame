@@ -27,6 +27,7 @@ public:
         int currentPlayerHP = p->get_HP();
         p->set_HP(currentPlayerHP + healAmount);
         cout << "Healed 50 hp" << endl;
+        delete this;
     };
 
 };

@@ -31,6 +31,7 @@ public:
         int enemyHP=e->get_HP();
         e->set_HP(enemyHP-damageAmount);
         cout<<"KAMBOOM"<<endl;
+        delete this;
     };
 
 };

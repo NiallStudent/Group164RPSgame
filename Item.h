@@ -29,12 +29,24 @@ public:
         return name;
     };
 
+    void setName(string newName){
+        name=newName;
+    };
+
     string getDescription(){
         return description;
     };
 
+    void setDescription(string newDesc){
+        description=newDesc;
+    }
+
     int getID(){
         return ID;
+    }
+
+    void setID(int newID){
+        ID=newID;
     }
 };
 
