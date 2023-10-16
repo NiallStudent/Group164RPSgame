@@ -23,6 +23,7 @@ private:
     Armour currentarmour;
     double Attack;
     double Defence;
+    //The inventory is a vector that can contain any number of pointers to consumables.
     vector<Consumable*> inventory;
     
 
@@ -40,15 +41,7 @@ public:
         inventory= {};
         currentweapon= weapon();
         currentarmour=Armour();
-        setCurrentWeapon(getCurrentWeapon());
-        
-
-        
-        
-        
-        //Need to add inventory attribute
-
-        
+        setCurrentWeapon(getCurrentWeapon());        
     };
 
     
@@ -85,14 +78,14 @@ public:
 
     void set_paperAtk()
     {
-        rockAttack = currentweapon.get_rockAtk() * Attack;
+        paperAttack = currentweapon.get_paperAtk() * Attack;
     };
 
     
 
     void set_scissorsAtk()
     {
-        rockAttack = currentweapon.get_rockAtk() * Attack;
+        scissorsAttack = currentweapon.get_scissorsAtk() * Attack;
     };
 
    
@@ -120,14 +113,14 @@ public:
 
     void setCurrentWeapon(weapon newWeapon)
     { // change weapon and reset RPS atk with new multipliers
-        cout << "lol" << endl;
+        
         currentweapon = newWeapon;
-        cout << "lol2" << endl;
+        
         cout << newWeapon.get_name() << endl;
 
         set_rockAtk();
-        // set_paperAtk();
-        // set_scissorsDef();
+         set_paperAtk();
+         set_scissorsDef();
     }
 
     weapon getCurrentWeapon()
@@ -156,6 +149,7 @@ public:
     }
 
     Consumable* get_item(int index){
+        //returns a pointer to an item at index position in the inventory
         return this->inventory[index];
 
     };
