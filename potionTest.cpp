@@ -5,6 +5,8 @@
 #include "Enemy.h"
 #include "Item.h"
 
+//to run this, compile combat1.cpp and potionTest.cpp
+
 #include "Potion.h" //predeclared potion and consumable class in player to avoid circular dependency
 #include "Bomb.h"
 using namespace std;
