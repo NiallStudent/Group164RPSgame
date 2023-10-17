@@ -4,6 +4,7 @@ using namespace std;
 #include <fstream>
 #include "PlayerUnitTest.h"
 #include "saveUnitTest.h"
+#include "SaveLoadFunctions.h"
 
 int main(){
     PlayerUnitTest put;

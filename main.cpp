@@ -3,16 +3,37 @@
 #include <string>
 #include "Player.h"
 #include "Enemy.h"
+#include <fstream>
+#include "SaveLoadFunctions.h"
 using namespace std;
 
 
 int main() {
 
 cout << "~=Welcome to RPS Hero=~" << endl;
-
-/*do you want to load save*/
-
 int currentLevel = 1; //level system initialiser 
+
+Player activePlayer;//creates the player. This will be replaced by a loaded player or changed at character creation
+
+//Check for save file
+SaveLoadFunctions SLFunc;
+fstream data_file;
+data_file.open("saveFile.txt", ios::in);
+if (data_file.is_open())
+{
+    cout<<"Save data found"<<endl;
+    data_file.close();
+    activePlayer = SLFunc.LoadPlayer();
+     //if save data is not found.
+}
+else
+{
+cout<<"saveFile not found. Creating new hero"<<endl;
+
+
+
+
+
 
 string playerName;                                  //creating the character name, checking length is between 1 and 16 characters long
 bool nameLengthCheck = false;
@@ -29,7 +50,11 @@ else {
     }
 }
 cout << "Get ready for battle!" << endl;
-    Player activePlayer(playerName,100,5,5);                                //initialising classes that will be used during combat loop
+     activePlayer=Player(playerName,100,5,5);                                //initialising classes that will be used during combat loop
+   
+    /* activePlayer.setCurrentArmour();
+    activePlayer.setCurrentWeapon(); */
+    }
     weapon baseWeapon(100,"Mundane Club", "Not much to look at",4,3,3);
     Armour baseArmour(101, "Mundane Armour", "Not much to look at",3,3,3);
     weapon sword(102, "Sword of Justice", "It's shiny",5,5,8);
@@ -38,12 +63,12 @@ cout << "Get ready for battle!" << endl;
     Armour Plate(105, "Plate Armour", "Cumbersome Plate Armour", 8, 4, 6);
     Armour Cloth(106, "Cloth Armour", "Comfy and easy to wear", 4, 10, 4);
     Armour Chainmail(107, "Chainmail", "Protects from blades", 4, 4, 10);
-    activePlayer.setCurrentArmour(baseArmour);
-    activePlayer.setCurrentWeapon(baseWeapon);
     combat combatSystem;
     RewardSystem rewards1;
     bool isArmourChoiceValid = false;
     bool isWpnChoiceValid = false;
+
+
 
 
 
@@ -146,7 +171,26 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
      }
      if (isDefeated == false)
      {
-        /*Do you want to safe options*/
+        cout<<"would you like to save and quit?"<<endl;
+        cout<<"(Please enter 1 to save or 2 to continue playing)";
+            int saveChoice;
+            cin >> saveChoice;
+            switch (saveChoice)
+            {
+            case 1:
+               cout<<"Saving game";
+               SLFunc.SavePlayer(activePlayer,activePlayer.getCurrentWeapon(),activePlayer.getCurrentArmour());
+                cout<<"Exiting game";
+                return 0;
+                break;
+            case 2:
+
+
+                cout<<"Collect your rewards";
+            default:
+            cout << "Please enter a valid response";
+                break;
+            }
      }
      
 
