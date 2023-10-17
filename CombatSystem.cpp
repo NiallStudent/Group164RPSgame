@@ -310,7 +310,7 @@ Enemy* combat::createEnemyList(){
 
 Enemy* enemyList = new Enemy[10];
 
-Enemy grizzlyBear1("Grizzly Bear",30,10,10,15,8,15,10,
+Enemy grizzlyBear1("Grizzly Bear",50,15,15,20,8,8,8,
 "It looks like it's about to charge headfirst",
 "It opens its arms wide and advances",
 "It readies its claws and rushes at you on its hind legs",
@@ -319,7 +319,7 @@ Enemy grizzlyBear1("Grizzly Bear",30,10,10,15,8,15,10,
 "It takes a defensive stance and readies its claws"
 );
 
-Enemy troll1("Troll", 35, 15, 10, 10, 10, 8, 15,
+Enemy troll1("Troll", 70, 10, 10, 16, 10, 8, 15,
 "It readies its club",
 "You notice its hand on a length of rope",
 "It gnashes its teeth",
@@ -327,7 +327,7 @@ Enemy troll1("Troll", 35, 15, 10, 10, 10, 8, 15,
 "It takes a defensive posture and you think you spot some rope in its hand",
 "You spot a glint of well polished steel");
 
-Enemy merfolk1("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
+Enemy merfolk1("Merfolk Trapper", 70, 12, 20, 12, 10, 5, 5,
 "It swings the butt of its trident at you",
 "It smirks at you then approaches fast",
 "It points the trident straight at your chest then charges",
@@ -336,7 +336,7 @@ Enemy merfolk1("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
 "It takes guard, its trident pointed at you");
 
 
-Enemy grizzlyBear2("Grizzly Bear",30,10,10,15,8,15,10,
+Enemy grizzlyBear2("Grizzly Bear",70,10,10,20,8,15,10,
 "It looks like it's about to charge headfirst",
 "It opens its arms wide and advances",
 "It readies its claws and rushes at you on its hind legs",
@@ -345,7 +345,7 @@ Enemy grizzlyBear2("Grizzly Bear",30,10,10,15,8,15,10,
 "It takes a defensive stance and readies its claws"
 );
 
-Enemy troll2("Troll", 35, 15, 10, 10, 10, 8, 15,
+Enemy troll2("Troll", 100, 15, 10, 10, 10, 8, 15,
 "It readies its club",
 "You notice its hand on a length of rope",
 "It gnashes its teeth",
@@ -353,7 +353,7 @@ Enemy troll2("Troll", 35, 15, 10, 10, 10, 8, 15,
 "It takes a defensive posture and you think you spot some rope in its hand",
 "You spot a glint of well polished steel");
 
-Enemy merfolk2("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
+Enemy merfolk2("Merfolk Trapper", 120, 10, 25, 15, 10, 12, 15,
 "It swings the butt of its trident at you",
 "It smirks at you then approaches fast",
 "It points the trident straight at your chest then charges",
@@ -362,7 +362,7 @@ Enemy merfolk2("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
 "It takes guard, its trident pointed at you");
 
 
-Enemy grizzlyBear3("Grizzly Bear",30,10,10,15,8,15,10,
+Enemy grizzlyBear3("Grizzly Bear",150,30,20,20,15,15,10,
 "It looks like it's about to charge headfirst",
 "It opens its arms wide and advances",
 "It readies its claws and rushes at you on its hind legs",
@@ -371,7 +371,7 @@ Enemy grizzlyBear3("Grizzly Bear",30,10,10,15,8,15,10,
 "It takes a defensive stance and readies its claws"
 );
 
-Enemy troll3("Troll", 35, 15, 10, 10, 10, 8, 15,
+Enemy troll3("Troll", 150, 30, 10, 10, 10, 8, 15,
 "It readies its club",
 "You notice its hand on a length of rope",
 "It gnashes its teeth",
@@ -379,7 +379,7 @@ Enemy troll3("Troll", 35, 15, 10, 10, 10, 8, 15,
 "It takes a defensive posture and you think you spot some rope in its hand",
 "You spot a glint of well polished steel");
 
-Enemy merfolk3("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
+Enemy merfolk3("Merfolk Trapper", 40, 20, 30, 20, 17, 12, 5,
 "It swings the butt of its trident at you",
 "It smirks at you then approaches fast",
 "It points the trident straight at your chest then charges",
@@ -387,7 +387,7 @@ Enemy merfolk3("Merfolk Trapper", 40, 8, 20, 12, 17, 12, 5,
 "It takes a defensive posture, hand on something on its belt",
 "It takes guard, its trident pointed at you");
 
-Enemy knight("Dark Knight", 70, 15, 15, 20, 20, 20, 20,
+Enemy knight("Dark Knight", 300, 30, 30, 30, 20, 20, 20,
 "He smirks and charges, something dull in hand",
 "He charges with a sinister look in his eyes",
 "He smirks and charges, something shiny in hand",

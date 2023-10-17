@@ -11,8 +11,8 @@ using namespace std;
 int main() {
 SaveLoadFunctions SLFunc;
 cout << "~=Welcome to RPS Hero=~" << endl;
-cout << "The aim of this game is to beat your enemies with combat that mirrors Rock Paper Scissors. Blunt weapons are Rock, " <<
- "nets and whips are paper and blades or anything else sharp are scissors" << endl << "If you're ready, press enter!";
+cout << "The aim of this game is to beat your enemies with combat that mirrors Rock Paper Scissors." << endl << 
+"Blunt weapons are rock, nets and whips are paper and blades or anything else sharp are scissors" << endl << "If you're ready, press enter!";
  cin.ignore();
 
 
@@ -223,10 +223,11 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
                 return 0;
                 break;
             case 2:
-                cout<<"Collect your rewards";
+                cout<<"Collect your rewards" << endl;
                 isSaveInputValid = true;
+                break;
             default:
-            cout << "Please enter a valid response";
+            cout << "Please enter a valid response" << endl;
                 break;
             }
         
