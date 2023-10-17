@@ -126,16 +126,18 @@ void loadSaveTest(){
             
         }
         data_file.close();
-        cout<<loadPlayer.get_name()<<endl;
-        cout<<loadPlayer.get_HP()<<endl;
-        cout<<loadPlayer.get_attack()<<endl;
-        cout<<loadPlayer.get_defence()<<endl;
+        cout<<"loaded player with name :"<<loadPlayer.get_name()<<endl;
+        cout<<"Loaded player with HP: "<<loadPlayer.get_HP()<<endl;
+        cout<<"Loaded player with base attack: "<<loadPlayer.get_attack()<<endl;
+        cout<<"Loaded player with base defese: "<<loadPlayer.get_defence()<<endl;
         //print loaded weapon data
         weapon loadsword(WeaponID,weaponName,WeaponDesc,WeaponRAtk,WeaponPAtk,WeaponSAtk);
-        cout<<loadsword.getName();
+        cout<<"Loaded weapon with name: "<<loadsword.getName()<<endl;
         //print loaded armour
         Armour loadplate(ArmourID,armourName,ArmourDesc,ArmourRDef,ArmourPDef,ArmourSDef);
-        cout<<loadplate.getName();
+        cout<<"loaded armour with name :"<<loadplate.getName()<<endl;
+        remove("saveFile.txt");
+        cout<<"Deleted Savefile"<<endl;
     } 
 }
     

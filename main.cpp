@@ -62,7 +62,7 @@ data_file.close();
 activePlayer = SLFunc.LoadPlayer();
 }
 else {
-    cout << "save file not found";
+    cout << "save file not found"<<endl;
     wantToLoad = false;
 }
 }
@@ -89,9 +89,7 @@ cin.ignore();
 
      activePlayer=Player(playerName,100,5,5);                                //initialising classes that will be used during combat loop
    
-    /* activePlayer.setCurrentArmour();
-    activePlayer.setCurrentWeapon(); */
-
+    
 }
 
 
@@ -138,7 +136,7 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
             isInventoryChoiceValid = false;
            while (isInventoryChoiceValid == false)
            {
-            cout << "Do you want to use an item? 1 for yes, 2 for no" << endl;
+            cout << "Do you want to use an item? 1 for yes, 2 for no" << endl; //displayes when a consumable is in the players inventory
             cin >> inventoryChoice;
             switch (inventoryChoice)
             {
@@ -147,14 +145,15 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
                cout<<"please select an item"<<endl;
                int inventoryIndex;
                cin>>inventoryIndex;
+               cout<<"Item selected"<<endl;
               if (activePlayer.get_item(inventoryIndex)->getName()=="Healing Potion"){
               
-                activePlayer.get_item(inventoryIndex)->useItem(&activePlayer);
+                activePlayer.get_item(inventoryIndex)->useItem(&activePlayer);//uses potion on player
                 activePlayer.removeItem(inventoryIndex);
               }
               else
               {
-                activePlayer.get_item(inventoryIndex)->useItem(activeEnemy);
+                activePlayer.get_item(inventoryIndex)->useItem(activeEnemy);//uses bomb on enemy
                 activePlayer.removeItem(inventoryIndex);
               }
               
@@ -211,7 +210,7 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
         while (isSaveInputValid == false)
         {
              cout<<"would you like to save and quit? If you run away now you'll have to fight all these enemies again."<<endl;
-        cout<<"(Please enter 1 to save or 2 to continue playing)";
+        cout<<"(Please enter 1 to save or 2 to continue playing)"<<endl;
             int saveChoice;
             cin >> saveChoice;
             switch (saveChoice)
