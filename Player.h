@@ -25,7 +25,6 @@ private:
     double Defence;
     //The inventory is a vector that can contain any number of pointers to consumables.
     vector<Consumable*> inventory;
-    
 
 public:
 

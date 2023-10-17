@@ -9,37 +9,72 @@ using namespace std;
 
 
 int main() {
-
+SaveLoadFunctions SLFunc;
 cout << "~=Welcome to RPS Hero=~" << endl;
-int currentLevel = 1; //level system initialiser 
+cout << "The aim of this game is to beat your enemies with combat that mirrors Rock Paper Scissors. Blunt weapons are Rock, " <<
+ "nets and whips are paper and blades or anything else sharp are scissors" << endl << "If you're ready, press enter!";
+ cin.ignore();
+
+
+
+
 
 Player activePlayer;//creates the player. This will be replaced by a loaded player or changed at character creation
 
-//Check for save file
-SaveLoadFunctions SLFunc;
+
+bool wantToLoad = true;
+
+                                 
+    bool isSaveInputValid = false;
+    int wantToLoadSaveCheck;
+    cout << "do you want to load? Enter 1 for yes, 2 for no." << endl;
+    while (isSaveInputValid == false) //checking if player wants to load the save
+    {
+        cin >> wantToLoadSaveCheck;
+        switch (wantToLoadSaveCheck)
+        {
+            case 1:
+            wantToLoad = true;
+            isSaveInputValid = true;
+            break;
+        
+        case 2:
+            wantToLoad = false;
+            isSaveInputValid = true;
+            break;
+        
+        
+        default:
+        cout << "please make a valid input" << endl;
+            break;
+        }
+    }
+    
+if (wantToLoad)
+{
+    
+ //Check for save file
 fstream data_file;
 data_file.open("saveFile.txt", ios::in);
-if (data_file.is_open())
-{
-    cout<<"Save data found"<<endl;
-    data_file.close();
-    activePlayer = SLFunc.LoadPlayer();
-     //if save data is not found.
+if (data_file.is_open()){
+cout<<"Save data found"<<endl;
+data_file.close();
+activePlayer = SLFunc.LoadPlayer();
 }
-else
-{
-cout<<"saveFile not found. Creating new hero"<<endl;
-
-
-
-
-
+else {
+    cout << "save file not found";
+    wantToLoad = false;
+}
+}
+if (wantToLoad == false)
+{   
+cout<<"Not Loading a Save. Creating new hero"<<endl;
+cin.ignore();
 
 string playerName;                                  //creating the character name, checking length is between 1 and 16 characters long
 bool nameLengthCheck = false;
 while (nameLengthCheck == false){                   //loops until there is a valid name
 cout << "Enter your name ( minimum 1, maximum 16 characters)" << endl;
-//cin >> playerName;
 getline(cin, playerName);
 if (playerName.size() < 17 && playerName.size() > 0) //checking name is between 1 and 16 characters long
     {
@@ -49,12 +84,17 @@ else {
     cout << "Please enter a valid name" << endl;
     }
 }
-cout << "Get ready for battle!" << endl;
+cout << "Get ready for battle! Press enter to continue." << endl;
+cin.ignore();
+
      activePlayer=Player(playerName,100,5,5);                                //initialising classes that will be used during combat loop
    
     /* activePlayer.setCurrentArmour();
     activePlayer.setCurrentWeapon(); */
-    }
+
+}
+
+
     weapon baseWeapon(100,"Mundane Club", "Not much to look at",4,3,3);
     Armour baseArmour(101, "Mundane Armour", "Not much to look at",3,3,3);
     weapon sword(102, "Sword of Justice", "It's shiny",5,5,8);
@@ -67,6 +107,7 @@ cout << "Get ready for battle!" << endl;
     RewardSystem rewards1;
     bool isArmourChoiceValid = false;
     bool isWpnChoiceValid = false;
+    int currentLevel = 1; //level system initialiser 
 
 
 
@@ -82,6 +123,7 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
  bool isAttacking = true;
  bool isInventoryChoiceValid = false;
  int inventoryChoice = 10;
+ 
 
    while (isGameOver == false)                                  //loops until defeat or all enemies defeated
    {
@@ -116,18 +158,10 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
                 activePlayer.removeItem(inventoryIndex);
               }
               
-              
-              
-              
-
-
-
                isAttacking = false;
                isInventoryChoiceValid = true; 
                 break;
             case 2:
-
-
                 isAttacking = true;
                 isInventoryChoiceValid = true;
                 break;
@@ -151,6 +185,8 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
         {
             isBattleOver = true;
             cout << "You have defeated the " << activeEnemy->get_name() << endl;
+            cout << "Press enter to continue" << endl;
+            cin.ignore();
         }
         else{
             combatSystem.enemyAttackType(*activeEnemy);                             //same as above but roles reversed
@@ -171,25 +207,30 @@ Enemy* enemyRoster = combatSystem.createEnemyList();
      }
      if (isDefeated == false)
      {
-        cout<<"would you like to save and quit?"<<endl;
+        bool isSaveInputValid = false;
+        while (isSaveInputValid == false)
+        {
+             cout<<"would you like to save and quit? If you run away now you'll have to fight all these enemies again."<<endl;
         cout<<"(Please enter 1 to save or 2 to continue playing)";
             int saveChoice;
             cin >> saveChoice;
             switch (saveChoice)
             {
             case 1:
-               cout<<"Saving game";
+               cout<<"Saving game" << endl;
                SLFunc.SavePlayer(activePlayer,activePlayer.getCurrentWeapon(),activePlayer.getCurrentArmour());
-                cout<<"Exiting game";
+                cout<<"Exiting game" << endl;
                 return 0;
                 break;
             case 2:
-
-
                 cout<<"Collect your rewards";
+                isSaveInputValid = true;
             default:
             cout << "Please enter a valid response";
                 break;
+            }
+        
+      
             }
      }
      
@@ -295,11 +336,5 @@ if (isDefeated)
     cout << "GAME OVER! Thanks for playing!" << endl;
 }
 else  { cout << "Congratulations, you have beaten the final enemy!" << endl; }
-    
-
-
-
-
-
     return 0;
 }
